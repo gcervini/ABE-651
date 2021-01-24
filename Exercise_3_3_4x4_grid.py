@@ -6,49 +6,42 @@ Exercise 3.3
 Jan 24 2021
 """
 
-def do_twice(func, arg):
-    func(arg)
-    func(arg)
+def chunk1():
+    print('+ - - - -', end=' ')
 
 
-def print_twice(arg,arg2=' '):
-    print(arg, end=arg2)
-    print(arg, end=arg2)
-    
-
-def do_four(func, arg=None):
-    do_twice(func, arg)
-    do_twice(func, arg)
-
-    
-def print_mainline():
-    print('+',end=' ')
-    do_twice(print_twice, '-') 
-    print('+',end=' ')
-    do_twice(print_twice, '-')
-    print('+',end='\n')
+def first_line():
+    do_four(chunk1)
+    print('+')
     
     
-def print_secondline(arg=None):
-    print('|',end=' ')
-    do_twice(print_twice,' ')
-    print('|',end=' ')
-    do_twice(print_twice,' ')
-    print('|',end='\n')
+def chunk2():
+    print('|        ', end=' ')
+    
+    
+    
+def second_line():
+    do_four(chunk2)
+    print('|')
+    
+    
+def do_four(func):
+    func()
+    func()
+    func()
+    func()
+    
+def row():
+    first_line()
+    do_four(second_line)
     
 
 def print_grid():
-    print_mainline()
-    do_four(print_secondline)
-    print_mainline()
-    do_four(print_secondline)
-    print_mainline()
+    do_four(row)
+    first_line()
     
     
 if __name__ == '__main__':
 
+   
     print_grid()
-    
-
-    
-
